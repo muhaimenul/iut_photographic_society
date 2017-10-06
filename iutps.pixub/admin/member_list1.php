@@ -7,7 +7,42 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
    <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/image_slide.js"></script>
+  
+  <style>
+  	  .list-scrol{
+		margin-top:20px;
+		float:left;
+	  height: 425px;
+	  width:640px; 
+	  padding:3px;
+	  overflow:auto;
+		
+	} 
+	.mem-table{
+	color: #333; /* Lighten up font color */
+    font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+    width: 640px; 
+    border-collapse: collapse;
+	border-spacing: 0; 
+	}
+	.mem-table th{
+		width:120px;
+		background-color: #4CAF50;
+		color: white;
+		font-weight: bold; 
+		border: 1px solid #CCC;
+	}
 
+	.mem-table td {  
+		background: #FAFAFA; /* Lighter grey background */
+		text-align: center; /* Center our text */
+		border: 1px solid #CCC;
+	}
+	.mem-table a {  
+		color: black;
+	}
+	</style>
+  
 </head>
 
 <body>
@@ -29,9 +64,8 @@
 	<div id="menubar">
 	<nav class="menu">
       <ul class="clearfix">
+	  <li><a href="../index.php">Logout</a></li>
         <li><a href="admin_addMem.php">Add Member</a></li>
-		<li><a href="edit_pro1.php">Update Info</a></li>
-		<li><a href="del_pro1.php">Delete Member</a></li>
 		<li class="current-item"><a href="member_list1.php">Member List</a></li>
 	  </nav>
     </div><!--close menubar-->
@@ -85,6 +119,7 @@
 			</form>
 			</div>
 			
+			
 			<?php
 			include("../config.php");
 			$err="";
@@ -97,7 +132,7 @@
 				if($count==1){
 					//$q="134414";
 
-				echo "<table class ='mem-search'>
+				echo "<table class ='mem-search' bgcolor='#8cd9b3'>
 				<tr>
 				<th>Student ID</th>
 				<th>Name</th>
@@ -129,23 +164,50 @@
 			
 			
 			
-			
+	
 			 
 			 <div class="list-scrol">
-		 	<?php
+		 	
+				<table  class ='mem-table'>
+			<thead>
+					<tr class='info'>
+						<td>Student ID</td>
+						<td>Student Name</td>
+						<td>Depertment</td>
+						<td>E-mail</td>
+						<td>Action</td>
+					</tr>
+			</thead>
+			<tbody>
+			
+			<?php
 			include("config.php");
 	
 			$selectTest = "SELECT * FROM member_info";
-			
 			$result = mysqli_query($con, $selectTest);
-	
 			if (!$result) {
 			printf("Error: %s\n", mysqli_error($con));
 				exit();
 			} 
 			
+		
+			while($row = mysqli_fetch_array($result)){ ?>
+				
+			<tr class='success'>
+			<td> <?php echo $row['STD_ID']; ?></td>
+			<td> <?php echo $row['NAME']; ?></td>
+			<td> <?php echo $row['DEPT']; ?></td>
+			<td> <?php echo $row['EMAIL']; ?></td>
+			<td><a href="edit_pro1.php?id=<?php echo $row['STD_ID']; ?>">Edit</a>/
+				<a href="del_pro1.php?id=<?php echo $row['STD_ID']; ?>" >Delete</a></td>
+			</tr>
+			<?php
+			} ?>
+			</tbody>
+			</table>
+			</br>";
 			
-			while($row = mysqli_fetch_array($result)) {
+			<?php /*while($row = mysqli_fetch_array($result)) {
 				echo "<table  border='1' bgcolor='#8cd9b3' class ='mem-table' >";
 				echo "<tr><th>Student ID</th><th>";
 				echo $row['STD_ID'] ."</th></tr>";
@@ -165,13 +227,16 @@
 				echo $row['CURRENT_JOB'] . "</td></tr>";
 				echo "</table></br>";
 
-			}
+			}*/
 			mysqli_close($con);
 			
 ?>
-	</div>
+
+			
+			</div>
 	
 		</div><!--close content_item-->
+		
       </div><!--close content-->  
     </div><!--close site_content-->  
 

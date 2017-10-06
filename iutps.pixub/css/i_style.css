@@ -610,25 +610,7 @@ label {
 }
  
  
-.list-scrol{
-	margin-top:20px;
-	float:right;
-  height: 425px;
-  width:600px; 
-  padding:3px; 
-  border:1;
-  overflow:auto;
-	
-} 
-
-.mem-table{
-	
-	width:500px; 
-	
-}
-.mem-table th{
-	width:120px;
-}
+  
 
 
 
@@ -643,9 +625,6 @@ label {
 }
 
 .mem-search th {text-align: left;}
-
-
-
 
 
 

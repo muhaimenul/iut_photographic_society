@@ -42,11 +42,10 @@
 		</li>
         <li><a href="../gallary.php">Gallary</a></li>
         <li><a href="../blog.php">Blog</a></li>-->
-	<li><a href="../index.php">Home</a></li>
+	<li><a href="../index.php">Logout</a></li>
 		<li class="current-item"><a href="#">Add Member</a></li>
-		<li><a href="edit_pro1.php">Update Info</a></li>
-		<li><a href="del_pro1.php">Delete Member</a></li>
 		<li><a href="member_list1.php">Member List</a></li>
+	
       </ul>
 	  </nav>
     </div><!--close menubar-->

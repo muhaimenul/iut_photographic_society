@@ -1,9 +1,9 @@
 <?php
 
-$mysql_hostname = "mysql.1freehosting.com";
-$mysql_user = "u603710351_ove";
-$mysql_password = "ove123";
-$mysql_database = "u603710351_iutps";
+$mysql_hostname = "localhost";
+$mysql_user = "root";
+$mysql_password = "";
+$mysql_database = "iutpsdb";
 
 
 $con = mysqli_connect($mysql_hostname, $mysql_user, $mysql_password)
